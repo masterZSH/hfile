@@ -12,7 +12,7 @@ const (
 	SecSize = 4 << 10
 )
 
-func Hash(fileName string) (hash string, err error) {
+func Hash(fileName string) (result []byte, err error) {
 	f, err := os.Open(fileName)
 	if err != nil {
 		return
@@ -41,7 +41,15 @@ func Hash(fileName string) (hash string, err error) {
 		sectionReader.Read(buff)
 		hash256.Write(buff)
 	}
-	sum := hash256.Sum(nil)
-	hash = fmt.Sprintf("%x", sum)
+	result = hash256.Sum(nil)
+	return
+}
+
+func HashString(fileName string) (result string, err error) {
+	sum, err := Hash(fileName)
+	if err != nil {
+		return
+	}
+	result = fmt.Sprintf("%x", sum)
 	return
 }

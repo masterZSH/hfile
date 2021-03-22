@@ -8,6 +8,7 @@ import (
 )
 
 func TestHash(t *testing.T) {
-	hash, err := hfile.Hash("/data/bin/ar.exe")
+	hash, err := hfile.Hash("/data/test/test")
 	assert.Nil(t, err)
+	assert.Empty(t, hash)
 }
