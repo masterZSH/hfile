@@ -8,9 +8,17 @@ import (
 )
 
 func TestHash(t *testing.T) {
+	// invalid file
+	_, err := hfile.Hash("invalid file")
+	assert.NotNil(t, err)
+
 	hash, err := hfile.Hash("/data/test/test")
 	assert.Nil(t, err)
-	assert.Empty(t, hash)
+	assert.NotEmpty(t, hash)
+
+	hashStr1, _ := hfile.HashString("/data/test/test")
+	hashStr2, _ := hfile.HashString("/data/test/test")
+	assert.Equal(t, hashStr1, hashStr2)
 }
 
 func BenchmarkHash(b *testing.B) {
