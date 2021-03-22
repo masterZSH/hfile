@@ -12,3 +12,9 @@ func TestHash(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Empty(t, hash)
 }
+
+func BenchmarkHash(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		hfile.Hash("/data/test/test")
+	}
+}
