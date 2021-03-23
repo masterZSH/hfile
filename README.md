@@ -1,12 +1,12 @@
 # hfile
-生成文件hash，有时候需要校验文件一致性需要对文件生成hash。
+get hash of a file
 
-# 安装
+# Install
 ```
 go get github.com/masterZSH/hfile
 ```
 
-# 使用
+# Usage
 ```
 hfile.Hash(filename)
 hfile.HashString(filename)
@@ -17,6 +17,9 @@ hfile.HashString(filename)
 hfile hash filename
 ```
 
-# 性能
+# Performance
+
+benchmark test 
+
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
 BenchmarkHash-8   	   19050	     63015 ns/op	    4937 B/op	       8 allocs/op
