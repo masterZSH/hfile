@@ -12,7 +12,7 @@ hfile.Hash(filename)
 hfile.HashString(filename)
 ```
 
-## cli
+## Cli
 ```
 hfile hash filename
 ```
